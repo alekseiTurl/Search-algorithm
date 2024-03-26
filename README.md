@@ -39,3 +39,17 @@ function searchEl(arr, el) {
 4. Если элемент `arr[mid]` больше `el`, правая граница `right` сдвигается к `mid`.
 5. Иначе левая граница `left` сдвигается к `mid`.
 6. Если элемент не был найден во всем массиве, функция возвращает объект ошибки с сообщением `Element not found`.
+
+```js
+function binarySearch(arr, el) {
+    let left = -1
+    let right = arr.length
+    while (right - left > 1) {
+        const mid = Math.floor((left + right) / 2)
+        if (arr[mid] === el) return mid
+        if (arr[mid] > el) right = mid
+        else left = mid
+    }
+    return new Error('Element not found')
+}
+```
